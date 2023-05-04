@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,16 @@
     <title>Mini Project 4</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
 
     <section id="startScreen">
-        <h1 id="title">Wanna Play Guessing Game</h1>
-        <button id="srt-btn">Start</button>
+        <h1 id="title">Wanna Play A Guessing Game</h1>
+        <div id="buttonContainer">
+            <button id="srt-easy-btn">Easy</button>
+            <button id="srt-medium-btn">Medium</button>
+            <button id="srt-hard-btn">Hard</button> 
+        </div>
     </section>
     <section id="info">
         <h3 id=box-timer test="hello">TIME: <span class="timer">000</span> s</h3>
@@ -20,11 +26,11 @@
 
     </section>
     <section class="stage">
-        <div class="letterBox" lettervalue="c"></div>
-        <div class="letterBox" lettervalue="a"></div>
+        <!-- <div class="letterBox" lettervalue="c"></div> -->
+        <!-- <div class="letterBox" lettervalue="a"></div>
         <div class="letterBox" lettervalue="k"></div>
         <div class="letterBox" lettervalue="e"></div>
-        <div class="letterBox" lettervalue="s"></div>
+        <div class="letterBox" lettervalue="s"></div> -->
     </section>
     <section id="endScreen">
         <h1 id="title">Wanna Play Again?</h1>
@@ -32,4 +38,5 @@
     </section>
     <script src="./assets/script.js"></script>
 </body>
+
 </html>
