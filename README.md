@@ -1,22 +1,24 @@
-Module 04 Mini-Project: Word Guess
+ # Module 04 Mini-Project: Word Guess
 In this activity, you will work with a group to build a game using JavaScript and Web APIs.
 
-Instructions
+ https://sergrojas29.github.io/MiniWeek4/
+
+ # Instructions
 The completed application should meet the following criteria:
 
-As a user, I want to start the game by clicking on a button.
+    As a user, I want to start the game by clicking on a button.
 
-As a user, I want to try and guess a word by filling in a number of blanks that match the number of letters in that word.
+    As a user, I want to try and guess a word by filling in a number of blanks that match the number of letters in that word.
 
-As a user, I want the game to be timed.
+    As a user, I want the game to be timed. 
 
-As a user, I want to win the game when I have guessed all the letters in the word.
+    As a user, I want to win the game when I have guessed all the letters in the word.  
 
-As a user, I want to lose the game when the timer runs out before I have guessed all the letters.
+    As a user, I want to lose the game when the timer runs out before I have guessed all the letters.   
 
-As a user, I want to see my total wins and losses on the screen.
+    As a user, I want to see my total wins and losses on the screen.    
 
-Specifications
+ # Specifications
 When a user presses a letter key, the user's guess should be captured as a key event.
 
 When a user correctly guesses a letter, the corresponding blank "_" should be replaced by the letter. For example, if the user correctly selects "a", then "a _ _ a _" should appear.
