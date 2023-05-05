@@ -1,31 +1,77 @@
 
 const stage = document.querySelector('.stage');
 const startScreen = document.querySelector('#startScreen')
+const endScreen = document.querySelector('#endScreen')
 const startEasybtn = document.querySelector('#srt-easy-btn');
 const startMediumbtn = document.querySelector('#srt-medium-btn');
 const startHardbtn = document.querySelector('#srt-hard-btn');
 const endbtn = document.querySelector('#end-btn');
+const timerhtml = document.querySelector('#timer')
+const scorehtml = document.querySelector('#score')
+const liveshtml = document.querySelector('#lives')
 
 startEasybtn.addEventListener('click', write);
 startMediumbtn.addEventListener('click', write);
 startHardbtn.addEventListener('click', write);
 endbtn.addEventListener('click', clear);
 
-
-var easyWords = ['pulse', 'cakes', 'climb', 'light'];
-var mediumWords = ['potency', 'amusing', 'castile', 'oranges', 'showbiz',]
+var easyWords = ['light','maids, equal','nepal','links','april','brazil'];
+var mediumWords = ['potency', 'amusing', 'computer', 'oranges', 'showbiz','vietnam']
 var hardWords = ['uncharted', 'lecturing', 'shrinkage', 'spreading', 'dismantle',]
-var chosenWord = []
-var gameTime = 0
-var gameScore = 0
 
-// var chosenWord = easyWords[1]
-// var gameword = chosenWord.split('');
+var chosenWord = []
+
+function gameState(level) {
+    if (level == 'Easy') {
+        var gameTime = 60
+        var gameScore = 0
+        var gameLives = 20
+        timerhtml.innerText = gameTime
+        scorehtml.innerText = gameScore
+        liveshtml.innerText = gameLives
+    }
+    else if (level == 'Medium') {
+        var gameTime = 60
+        var gameScore = 0
+        var gameLives = 20
+        timerhtml.innerText = gameTime
+        scorehtml.innerText = gameScore
+        liveshtml.innerText = gameLives
+    }
+    else if (level == 'Hard') {
+        var gameTime = 80
+        var gameScore = 0
+        var gameLives = 20
+        timerhtml.innerText = gameTime
+        scorehtml.innerText = gameScore
+        liveshtml.innerText = gameLives
+    }
+
+}
+
+function timestart() {
+    clockInterval = setInterval(timedown, 1000)
+}
+
+function timedown(){
+    time = timerhtml.innerText
+    time--
+    timerhtml.innerText = time
+    if (time == 0) { 
+        endgame();
+        console.log("endtimer")
+        clearInterval(clockInterval)        
+    }
+}
+
 
 function ranNum(max) {
-    var numberRand = Math.floor(Math.random() * max - 1);
+    var numberRand = Math.floor(Math.random() * max);
     return numberRand;
 }
+
+
+
 
 // box is create through a temple html because it need id that are custom
 function htmlBoxCreate() {
@@ -38,11 +84,9 @@ function htmlBoxCreate() {
 
 // Adds the letter to the box or in the future will just add it attribute
 function addletter(Letter) {
-    // stage.children[Letter].innerText = gameword[Letter]
     stage.children[Letter].setAttribute('lettervalue', gameword[Letter])
 
 }
-
 
 
 function mode(level) {
@@ -65,7 +109,9 @@ function mode(level) {
 
 function write(event) {
     var level = event.target.innerText
+    gameState(level)
     mode(level)
+    timestart()
     for (let i = 0; i < gameword.length; i++) {
         stage.appendChild(htmlBoxCreate());
         addletter(i);
@@ -74,26 +120,43 @@ function write(event) {
     }
 }
 
+function endgame(){
+    endScreen.setAttribute('style', 'display: flex ')
+    clearInterval(clockInterval)
+}
+
 
 function clear() {
     while (stage.firstChild) {
         stage.removeChild(stage.firstChild);
     }
     startScreen.setAttribute('style', 'display: flex ')
+    endScreen.setAttribute('style','display: hidden')
 }
 
 
 function gamechecker(event) {
+    var score = scorehtml.innerText 
+    var lives = liveshtml.innerText
+
     for (let i = 0; i < gameword.length; i++) {
         var letterboxInterval = stage.children[i].getAttribute('lettervalue');
         var boxinside = stage.children[i];
         if (letterboxInterval == event.key) {
             stage.children[i].setAttribute('style', 'background: var(--color3)')
             boxinside.innerText = letterboxInterval
-
-
+            score++
+            scorehtml.innerText = score
         }
+
     }
+        if ((letterboxInterval != event.key)) {
+        lives--
+        liveshtml.innerText = lives
+    }
+        if ( lives == 0 | score == gameword.length){
+            endgame()
+        }
 }
 
 

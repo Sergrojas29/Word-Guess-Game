@@ -1,86 +1,95 @@
-*{
+* {
     box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-:root{
-    --back-color: linear-gradient(90deg, rgba(195,129,112,1) 0%, rgba(223,108,79,1) 32%, rgba(73,197,182,1) 100%);
+
+:root {
+    --back-color: linear-gradient(90deg, rgba(195, 129, 112, 1) 0%, rgba(223, 108, 79, 1) 32%, rgba(73, 197, 182, 1) 100%);
     --play-canvas: #ffffff;
     --comRadius: 25px;
     --comShade: 5px 5px 15px 5px darkgray;
     --letter-box-color: #df6c4f;
-    
+
     --color1: #c38170;
     --color2: #df6c4f;
     --color3: #49c5b6;
-    
+
 }
 
 
-body{
+body {
     background: var(--back-color);
 }
 
-#startScreen{
+#startScreen {
     /* Hide below */
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* hide above */ 
+    /* hide above */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     background: var(--play-canvas);
     margin: 0 auto;
     margin-bottom: 15px;
     height: 200px;
     max-width: 900px;
-    min-width: calc( 100% - 600px)  ;
+    min-width: calc(80% - 600px);
     border-radius: var(--comRadius);
     box-shadow: var(--comShade);
-    
+
 }
-#endScreen{
-    display: flex;
+
+#endScreen {
+    /* Hide below */
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* hide above */
+    display: none;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     background: var(--play-canvas);
     margin: 0 auto;
     margin-top: 15px;
     height: 200px;
     max-width: 900px;
+    min-width: 600px;
     border-radius: var(--comRadius);
     box-shadow: var(--comShade);
-    
+
 }
 
-#title{
+#title {
     background: var(--color3);
     color: white;
     box-shadow: 2px 2px 5px 2px lightgray;
-    padding: 15px 30px ;
+    padding: 15px 30px;
     border-radius: calc(var(--comRadius) / 2);
     font-size: 20pt;
     text-transform: uppercase;
     text-shadow: 2px 2px 8px lightgray;
 }
 
-#buttonContainer{
+#buttonContainer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 5px;
 }
 
-button{
+button {
     box-shadow: 1px 1px 5px 1px lightgray;
     margin: 0 5%;
     border: none;
-    background-color: var(--color2)  ;
+    background-color: var(--color2);
     color: white;
     padding: 10px 25px;
     border-radius: 5px;
@@ -89,13 +98,13 @@ button{
 }
 
 button:hover,
-button.active{
+button.active {
     box-shadow: inset 1px 1px 5px 1px lightgray;
 
 }
 
 
-h3{
+h3 {
     box-shadow: 1px 1px 5px 1px lightgray;
     display: flex;
     justify-content: center;
@@ -108,23 +117,26 @@ h3{
     opacity: 80%;
 
 }
-#box-timer{
+
+#box-timer {
     background: var(--color1);
 }
-#box-score{
+
+#box-score {
     background: var(--color2);
 }
-#box-lives{
+
+#box-lives {
     background: var(--color3);
 }
 
 
 
-#info{
+#info {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     background: var(--play-canvas);
     margin: 0 auto;
     margin-bottom: 15px;
@@ -132,28 +144,28 @@ h3{
     max-width: 900px;
     border-radius: var(--comRadius);
     box-shadow: var(--comShade);
-    
+
 }
 
-.stage{
+.stage {
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     background: var(--play-canvas);
     margin: 0 auto;
     height: 400px;
     max-width: 900px;
     border-radius: var(--comRadius);
     box-shadow: var(--comShade);
-    
+
 }
 
-.letterBox{
+.letterBox {
     background: var(--letter-box-color);
     height: 90px;
-    width: 60px; 
+    width: 60px;
     border-radius: calc(var(--comRadius) / 2);
     box-shadow: 1px 1px 5px 1px lightgray;
     margin: 5px;
