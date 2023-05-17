@@ -1,6 +1,6 @@
 ## Module 04 Mini-Project: Word Guess
 In this activity, you will work with a group to build a game using JavaScript and Web APIs.
-https://sergrojas29.github.io/MiniWeek4/
+https://sergrojas29.github.io/Word-Guess-Game/
 
 ## Instructions
 The completed application should meet the following criteria:
